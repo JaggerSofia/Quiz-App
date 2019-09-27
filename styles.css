@@ -1,0 +1,10 @@
+.grey-box {
+    background: #dcdddc;
+    color: #888;
+    padding: 2rem;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #eeeeee;
+    margin: 0;
+    align-self: auto;
+}

@@ -8,7 +8,37 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>The Academy Award Show Quiz</h1>
+    <header>
+            <div class ='row'> 
+                <div class = 'column'>
+                    <h1 class = 'grey-box'>Doctor Who Quiz</h1>
+                    <div class = 'question-and-score'></div>
+                </div>
+            </div>
+    </header>
+    
+    <main role='main' aria-live='assertive'>
+        <div class = 'row'>
+            <div class = 'column'>
+            <p class = 'grey-box'>This is a quiz about the TV show Doctor Who.</p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'column'>
+                <button type = 'button' id = 'start' class = 'grey-box'>Start</button>
+            </div>
+        </div>
+        <div class = 'grey-box'>
+            <form action="">
+                Question 1: Who is the Doctors greatest adversary? <br>
+                <input type="radio">Daleks <br>
+                <input type="radio">The Master <br>
+                <input type="radio">Cybermen <br>
+                <input type="radio">Weeping Angels <br>
+                <input type="submit">
+            </form>
+        </div>
+    </main>
     
     <script src = 'https://code.jquery.com/jquery-3.2.1.min.js'></script>
     <script src = 'index.js'></script>
