@@ -1,7 +1,7 @@
 const STORE = {
     questions: [
         {
-            question: 'Who is the Doctors greatest adversary?'
+            question: 'Who is the Doctors greatest adversary?',
             options: [
                 'Daleks',
                 'The Master',
