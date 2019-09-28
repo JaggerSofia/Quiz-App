@@ -17,6 +17,7 @@ function updateQuestionOptions() {
 function renderQuestions() {
     //this function will place a new question on the screen
     //will also update the current ? number and score
+    //there are a total of 5 stored in a seperate js file 
 }
 
 function finalResult() {
@@ -26,7 +27,8 @@ function finalResult() {
 
 function handleQuestion() {
     //This is where I will add an event listener to the next question
-    //button at the botton of each page
+    //button at the botton of each page, this will be after the answer
+    // has been initially given
 }
 
 function optionSelections() {
