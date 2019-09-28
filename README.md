@@ -1,5 +1,3 @@
-This will be a 10 question quiz, more information coming.
-
 These are the questions that will be in the quiz along with the correct answer only (multiple choice options will be added into js STORE):
 
 Doctor Who Questions
