@@ -7,7 +7,7 @@ function startQuiz() {
 function questionNumberAndScore() {
     //this will update the score on whichever page the 
     //quiz is located on based on how the questions are 
-    //answered
+    //answered. EX. question 2 out of 5, score 2 of 5
 }
 function updateQuestionOptions() {
     //this will render the <radio> options for the quiz
