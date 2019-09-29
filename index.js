@@ -19,15 +19,16 @@ function questionNumberAndScore() {
     //quiz is located on based on how the questions are 
     //answered. EX. question 2 out of 5, score 2 of 5
 }
+
 function updateQuestionOptions() {
     let question = STORE.questions[STORE.currentQuestion];
     for(let i=0; i<question.options.length; i++) {
-    $('.js-options').append(`
-        <input type = "radio" name="options" id="option${i+1}" value= "${question.options[i]}" tabindex ="${i+1}"> 
-        <label for="option${i+1}"> ${question.options[i]}</label> <br/>
-        <span id="js-r${i+1}"></span>
-    `);
-  }
+        $('.js-options').append(`
+            <input type = "radio" name="options" id="option${i+1}" value= "${question.options[i]}" tabindex ="${i+1}"> 
+            <label for="option${i+1}"> ${question.options[i]}</label> <br/>
+            <span id="js-r${i+1}"></span>
+        `);
+    }
 
     //this will render the <radio> options for the quiz
     //depending on which question is being rendered
