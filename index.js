@@ -1,12 +1,12 @@
 function startQuiz() {
-    //this function will create an event listener that 
-    //allow the start button to move to the first
-    //question by using a click event
     $('#start-quiz').on('click', function(event){
         event.preventDefault();
         renderAQuestion();
       });
 }
+    //this function will create an event listener that 
+    //allow the start button to move to the first
+    //question by using a click event
 
 function questionNumberAndScore() {
     const doctorWho = $(`<ul>
@@ -14,11 +14,11 @@ function questionNumberAndScore() {
       <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
     </ul>`);
   $(".question-and-score").html(doctorWho);
-    
+}
     //this will update the score on whichever page the 
     //quiz is located on based on how the questions are 
     //answered. EX. question 2 out of 5, score 2 of 5
-}
+
 
 function updateQuestionOptions() {
     let question = STORE.questions[STORE.currentQuestion];
@@ -29,10 +29,10 @@ function updateQuestionOptions() {
             <span id="js-r${i+1}"></span>
         `);
     }
-
+}
     //this will render the <radio> options for the quiz
     //depending on which question is being rendered
-}
+
 
 function renderQuestions() {
     let question = STORE.questions[STORE.currentQuestion];
@@ -67,11 +67,10 @@ function renderQuestions() {
 $("main").html(questionWho);
 updateQuestionOptions();
 $("#next-question").hide();
-
-//     //this function will place a new question on the screen
-//     //will also update the current ? number and score
-//     //there are a total of 5 stored in a seperate js file 
-// }
+}
+    //this function will place a new question on the screen
+    //will also update the current ? number and score
+    //there are a total of 5 stored in a seperate js file 
 
 function finalResult() {
     function displayResults() {
@@ -96,20 +95,18 @@ function finalResult() {
           STORE.currentQuestion = 0;
           STORE.score = 0;
         $("main").html(resultWho);
-
+}
     //this will be where the final score will be displayed when all ?
     //have been answered 
-}
 
 function handleQuestion() {
     $('body').on('click','#next-question', (event) => {
         STORE.currentQuestion === STORE.questions.length?finalResult() : renderQuestions();
       });
-    
+}
     //This is where I will add an event listener to the next question
     //button at the botton of each page, this will be after the answer
     // has been initially given
-}
 
 function optionSelections() {
     $('body').on("submit",'#js-questions', function(event) {
@@ -139,20 +136,19 @@ function optionSelections() {
         $("input[type=radio]").attr('disabled', true);
         $('#next-question').show();
     });
-    
+}
     //this function will have most of the content
     //it will have an even listener of submit so that the answer can
     //be read. It will also conatin what will display on the screen 
     //depending on the answer selected
-}
 
 function restartQuiz() {
     $('body').on('click', '#restart', (event) => {
         renderQuestions();
     });
+}
     //create an event listener that will allow  the user
     // to restart the quiz when they have completed it
-}
 
 function handleQuiz() {
     startQuiz();
@@ -162,5 +158,3 @@ function handleQuiz() {
 }
 
 $(handleQuiz);
-
-console.log(renderQuestions);
