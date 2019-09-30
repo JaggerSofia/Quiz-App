@@ -1,5 +1,5 @@
 function startQuiz() {
-    $('#start-quiz').on('click', function(event){
+    $('#start-quiz').on('click', function(event) {
         event.preventDefault();
         renderAQuestion();
       });
@@ -10,9 +10,9 @@ function startQuiz() {
 
 function questionNumberAndScore() {
     const doctorWho = $(`<ul>
-      <li id="js-answered">Questions Number: ${STORE.currentQuestion + 1}/${STORE.questions.length}</li>
-      <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
-    </ul>`);
+        <li id="js-answered">Questions Number: ${STORE.currentQuestion + 1}/${STORE.questions.length}</li>
+        <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
+        </ul>`);
   $(".question-and-score").html(doctorWho);
 }
     //this will update the score on whichever page the 
@@ -153,6 +153,7 @@ function handleQuiz() {
     renderQuestions();
     optionSelections();
     restartQuiz();
+}
 }
 
 $(handleQuiz);
