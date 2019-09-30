@@ -1,0 +1,69 @@
+body {
+    font-family: "Roboto", sans-serif;
+    color: white;
+    margin:0;
+    background:cover;
+    background-image:url("tardis.jpg"); 
+    background-color:lightblue;
+}
+
+header{
+    margin-top: 25px;
+    height:70px;
+    color: blue;
+    margin-bottom: 55px;
+}
+
+.row {
+    max-width: 1000px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+}
+
+header h1{
+    line-height:1;
+    top: 24px;
+    text-align: center;
+}
+
+header .question-and-score {
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    background: none;
+}
+
+.question-and-score li {
+    display: inline-block;
+    padding: 0 2%;
+}
+
+.question-and-score ul {
+    text-align: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+button{
+    margin-top: 10px;
+    height: auto;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    background: blue;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+    border-radius: 4px;
+    padding: 10px 20px;
+}
+
+fieldset {
+    width: 80%;
+    padding:45px;
+    margin: 0 auto;
+    background: rgha(255, 255, 255, 0.60);
+    border-radius: 10px;
+}
+
