@@ -1,10 +1,15 @@
-/* .grey-box {
-    background: #dcdddc;
-    color: #888;
+.grey-box {
+    background: #000ff0;
+    color: #eeeeee;
     padding: 2rem;
     text-align: center;
     font-weight: bold;
     border-bottom: 1px solid #eeeeee;
     margin: 0;
     align-self: auto;
-} */
+}
+
+.timelord {
+    text-align: center;
+    width: 100%;
+}
