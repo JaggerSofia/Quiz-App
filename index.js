@@ -41,7 +41,7 @@ function renderQuestions() {
     let question = STORE.questions[currentQuestion];
     questionNumberAndScore();
     const questionWho = $(`
-    <div class='center-who>
+    <div class='center-who'>
         <form id="js-questions" class="question-form">
             <fieldset>
                 <div class="row question">
