@@ -13,7 +13,7 @@ const STORE = {
         },
 
         {
-            question: 'Which species say’s “Exterminate!” most?',
+            question: 'Which species says “Exterminate!” most?',
             options: [
                 'Daleks',
                 'Sontarans',
@@ -53,7 +53,7 @@ const STORE = {
                 '10',
                 '14'
             ],
-            answer: '14'
+            answer: '14! There has been 14 regenerations, but you forgot The War Doctor.'
         },
     ]
 }
