@@ -12,7 +12,7 @@ function startQuiz() {
     //question by using a click event
 
 function questionNumberAndScore() {
-    const doctorWho = $(`<ul>
+    const doctorWho = $(`<ul class='center-who'>
         <li id="js-answered">Questions Number: ${currentQuestion + 1}/${STORE.questions.length}</li>
         <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
         </ul>`);
@@ -41,9 +41,8 @@ function renderQuestions() {
     let question = STORE.questions[currentQuestion];
     questionNumberAndScore();
     const questionWho = $(`
-    <div>
+    <div class='center-who>
         <form id="js-questions" class="question-form">
-      
             <fieldset>
                 <div class="row question">
                     <div class="col-12">
