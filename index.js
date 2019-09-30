@@ -26,8 +26,7 @@ function updateQuestionOptions() {
         $('.js-options').append(`
             <input type = "radio" name="options" id="option${i+1}" value= "${question.options[i]}" tabindex ="${i+1}"> 
             <label for="option${i+1}"> ${question.options[i]}</label> <br/>
-            <span id="js-r${i+1}"></span>
-        `);
+            <span id="js-r${i+1}"></span>`)
     }
 }
     //this will render the <radio> options for the quiz
@@ -53,12 +52,11 @@ function renderQuestions() {
                         <div class="js-options"> </div>
                     </div>
                 </div>
-    
 
                 <div class="row">
                     <div class="col-12">
-                        <button type = "submit" id="answer" tabindex="5">Submit</button>
-                        <button type = "button" id="next-question" tabindex="6"> Next >></button>
+                        <button type = "submit" id="answer" tabindex="4">Submit</button>
+                        <button type = "button" id="next-question" tabindex="5">Travel to the Future</button>
                     </div>
                 </div>
             </fieldset>
