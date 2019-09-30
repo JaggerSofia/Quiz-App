@@ -1,4 +1,5 @@
 const STORE = {
+    score: 0,
     questions: [
         {
             question: 'Who is the Doctors greatest adversary?',
