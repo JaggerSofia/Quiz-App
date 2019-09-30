@@ -1,9 +1,7 @@
 let currentQuestion = 0;
 
 function startQuiz() {
-    $('#start-quiz').on('click', function(event) {
-        event.preventDefault();
-        console.log('startQuiz')
+    $('#start-quiz').on('click', function(event)
         renderAQuestion();
       });
 }
@@ -150,7 +148,7 @@ function optionSelections() {
 
 function restartQuiz() {
     $('body').on('click', '#restart', (event) => {
-        renderQuestions();
+        startQuiz();
     });
 }
     //create an event listener that will allow  the user
