@@ -1,7 +1,7 @@
 //this is my stored data is
 const STORE = {
     score: 0,
-    // currentQuestion = 0,
+    currentQuestion = 0,
 
     questions: [
         {
@@ -62,8 +62,6 @@ const STORE = {
 }
 
 //this is the start of the functional code
-let currentQuestion = 0;
-
 function startQuiz() {
     $('#start').on('click', event =>{
         renderQuestions();
@@ -76,7 +74,7 @@ function startQuiz() {
 
 function questionNumberAndScore() {
     const doctorWho = $(`<ul class='center-who'>
-        <li id="js-answered">Questions Number: ${currentQuestion + 1}/${STORE.questions.length}</li>
+        <li id="js-answered">Questions Number: ${STORE.currentQuestion + 1}/${STORE.questions.length}</li>
         <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
         </ul>`);
   $(".question-and-score").html(doctorWho);
@@ -109,7 +107,7 @@ function renderQuestions() {
             <fieldset>
                 <div class="row question">
                     <div class="col-12">
-                        <legend> ${question.question}</legend>
+                        <legend> ${question.questions}</legend>
                     </div>
                 </div>
 
@@ -158,7 +156,7 @@ function finalResult() {
               </fieldset>
           </form>
           </div>`);
-          currentQuestion = 0;
+          STORE.currentQuestion = 0;
           STORE.score = 0;
         $("main").html(resultWho);
         }
@@ -169,7 +167,7 @@ function finalResult() {
 function handleQuestion() {
     $('body').on('click','#next-question', (event) => {
         console.log('handleQuestion', STORE.currentQuestion)
-        currentQuestion === STORE.questions.length?finalResult() : renderQuestions();
+        STORE.currentQuestion === STORE.questions.length?finalResult() : renderQuestions();
       });
 }
     //This is where I will add an event listener to the next question
@@ -198,8 +196,8 @@ function optionSelections() {
           $(`${id}`).addClass("wrong-answer");
         }
     
-        currentQuestion++;
-        console.log(currentQuestion)
+        STORE.currentQuestion++;
+        console.log(STORE.currentQuestion)
         $("#js-score").text(`Score: ${STORE.score}/${STORE.questions.length}`);
         $('#answer').hide();
         $("input[type=radio]").attr('disabled', true);
@@ -221,7 +219,7 @@ function restartQuiz() {
 
 function handleQuiz() {
     startQuiz();
-    renderQuestions();
+    renderQuestions()
     optionSelections();
     restartQuiz();
     handleQuestion();
