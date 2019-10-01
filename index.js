@@ -61,11 +61,14 @@ const STORE = {
     ]
 }
 
-//this is the start of the functional code
+
+let currentQuestion = 0;
+
 function startQuiz() {
-    $('#start').on('click', event =>{
+    $('#start-quiz').on('click', function(event) {
+        event.preventDefault();
+        console.log('startQuiz')
         renderQuestions();
-        console.log('startQuiz');
       });
 }
     //this function will create an event listener that 
@@ -74,7 +77,7 @@ function startQuiz() {
 
 function questionNumberAndScore() {
     const doctorWho = $(`<ul class='center-who'>
-        <li id="js-answered">Questions Number: ${STORE.currentQuestion + 1}/${STORE.questions.length}</li>
+        <li id="js-answered">Questions Number: ${currentQuestion + 1}/${STORE.questions.length}</li>
         <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
         </ul>`);
   $(".question-and-score").html(doctorWho);
@@ -85,7 +88,7 @@ function questionNumberAndScore() {
 
 
 function updateQuestionOptions() {
-    let question = STORE.questions[STORE.currentQuestion];
+    let question = STORE.questions[currentQuestion];
     for(let i=0; i<question.options.length; i++) {
         $('.js-options').append(`
             <input type = "radio" name="options" id="option${i+1}" value= "${question.options[i]}" tabindex ="${i+1}"> 
@@ -98,8 +101,8 @@ function updateQuestionOptions() {
 
 
 function renderQuestions() {
-    // console.log('renderQuestions')
-    let question = STORE.questions[STORE.currentQuestion];
+    console.log('renderQuestions')
+    let question = STORE.questions[currentQuestion];
     questionNumberAndScore();
     const questionWho = $(`
     <div class='center-who'>
@@ -107,7 +110,7 @@ function renderQuestions() {
             <fieldset>
                 <div class="row question">
                     <div class="col-12">
-                        <legend> ${question.questions}</legend>
+                        <legend> ${question.question}</legend>
                     </div>
                 </div>
 
@@ -119,7 +122,7 @@ function renderQuestions() {
 
                 <div class="row">
                     <div class="col-12">
-                        <button type = "submit" id="answer" tabindex="4">Allons-y!</button>
+                        <button type = "submit" id="answer" tabindex="4">Submit</button>
                         <button type = "button" id="next-question" tabindex="5">Travel to the Future</button>
                     </div>
                 </div>
@@ -135,7 +138,7 @@ $("#next-question").hide();
     //there are a total of 5 stored in a seperate js file 
 
 function finalResult() {
-    // console.log('finalResult')
+    console.log('finalResult')
     displayResults();
     function displayResults() {
         let resultWho = $(
@@ -156,7 +159,7 @@ function finalResult() {
               </fieldset>
           </form>
           </div>`);
-          STORE.currentQuestion = 0;
+          currentQuestion = 0;
           STORE.score = 0;
         $("main").html(resultWho);
         }
@@ -166,8 +169,8 @@ function finalResult() {
 
 function handleQuestion() {
     $('body').on('click','#next-question', (event) => {
-        console.log('handleQuestion', STORE.currentQuestion)
-        STORE.currentQuestion === STORE.questions.length?finalResult() : renderQuestions();
+        console.log('handleQuestion', currentQuestion)
+        currentQuestion === STORE.questions.length?finalResult() : renderQuestions();
       });
 }
     //This is where I will add an event listener to the next question
@@ -177,7 +180,7 @@ function handleQuestion() {
 function optionSelections() {
     $('body').on("submit",'#js-questions', function(event) {
         event.preventDefault();
-        let currentQues = STORE.questions[STORE.currentQuestion];
+        let currentQues = STORE.questions[currentQuestion];
         let selectedOption = $("input[name=options]:checked").val();
         if (!selectedOption) {
           alert("Choose an option");
@@ -196,8 +199,8 @@ function optionSelections() {
           $(`${id}`).addClass("wrong-answer");
         }
     
-        STORE.currentQuestion++;
-        console.log(STORE.currentQuestion)
+        currentQuestion++;
+        console.log(currentQuestion)
         $("#js-score").text(`Score: ${STORE.score}/${STORE.questions.length}`);
         $('#answer').hide();
         $("input[type=radio]").attr('disabled', true);
@@ -211,7 +214,7 @@ function optionSelections() {
 
 function restartQuiz() {
     $('body').on('click', '#restart', (event) => {
-        startQuiz();
+        renderQuestions();
     });
 }
     //create an event listener that will allow  the user
@@ -219,7 +222,7 @@ function restartQuiz() {
 
 function handleQuiz() {
     startQuiz();
-    renderQuestions()
+    renderQuestions();
     optionSelections();
     restartQuiz();
     handleQuestion();
