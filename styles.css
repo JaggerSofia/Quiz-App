@@ -3,7 +3,7 @@ body {
     color: white;
     margin:0;
     background:cover;
-    background-image:url("tardis.jpg"); 
+    background-image:url("/img/tardis.jpg"); 
     background-color:lightblue;
 }
 
@@ -50,7 +50,7 @@ button{
     height: auto;
     font-size: 20px;
     font-weight: 500;
-    color: white;
+    color: black;
     background: #3041FF;
     border: 0;
     cursor: pointer;
