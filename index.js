@@ -1,4 +1,4 @@
-let currentQuestion = 0;
+// let currentQuestion = 0;
 
 function startQuiz() {
     $('#start-quiz').on('click', function(event){
@@ -11,7 +11,7 @@ function startQuiz() {
 
 function questionNumberAndScore() {
     const doctorWho = $(`<ul class='center-who'>
-        <li id="js-answered">Questions Number: ${currentQuestion + 1}/${STORE.questions.length}</li>
+        <li id="js-answered">Questions Number: ${STORE.currentQuestion + 1}/${STORE.questions.length}</li>
         <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
         </ul>`);
   $(".question-and-score").html(doctorWho);
@@ -22,7 +22,7 @@ function questionNumberAndScore() {
 
 
 function updateQuestionOptions() {
-    let question = STORE.questions[currentQuestion];
+    let question = STORE.questions[STORE.currentQuestion];
     for(let i=0; i<question.options.length; i++) {
         $('.js-options').append(`
             <input type = "radio" name="options" id="option${i+1}" value= "${question.options[i]}" tabindex ="${i+1}"> 
@@ -36,7 +36,7 @@ function updateQuestionOptions() {
 
 function renderQuestions() {
     console.log('renderQuestions')
-    let question = STORE.questions[currentQuestion];
+    let question = STORE.questions[STORE.currentQuestion];
     questionNumberAndScore();
     const questionWho = $(`
     <div class='center-who'>
@@ -93,7 +93,7 @@ function finalResult() {
               </fieldset>
           </form>
           </div>`);
-          currentQuestion = 0;
+          STORE.currentQuestion = 0;
           STORE.score = 0;
         $("main").html(resultWho);
         }
@@ -103,8 +103,8 @@ function finalResult() {
 
 function handleQuestion() {
     $('body').on('click','#next-question', (event) => {
-        console.log('handleQuestion', currentQuestion)
-        currentQuestion === STORE.questions.length?finalResult() : renderQuestions();
+        console.log('handleQuestion', STORE.currentQuestion)
+        STORE.currentQuestion === STORE.questions.length?finalResult() : renderQuestions();
       });
 }
     //This is where I will add an event listener to the next question
@@ -114,7 +114,7 @@ function handleQuestion() {
 function optionSelections() {
     $('body').on("submit",'#js-questions', function(event) {
         event.preventDefault();
-        let currentQues = STORE.questions[currentQuestion];
+        let currentQues = STORE.questions[STORE.currentQuestion];
         let selectedOption = $("input[name=options]:checked").val();
         if (!selectedOption) {
           alert("Choose an option");
@@ -133,7 +133,7 @@ function optionSelections() {
           $(`${id}`).addClass("wrong-answer");
         }
     
-        currentQuestion++;
+        STORE.currentQuestion++;
         console.log(currentQuestion)
         $("#js-score").text(`Score: ${STORE.score}/${STORE.questions.length}`);
         $('#answer').hide();
