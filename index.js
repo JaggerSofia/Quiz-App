@@ -1,8 +1,74 @@
-// let currentQuestion = 0;
+//this is my stored data
+const STORE = {
+    score: 0,
+    // currentQuestion = 0,
+
+    questions: [
+        {
+            question: 'Who is the Doctors greatest adversary?',
+            options: [
+                'Daleks',
+                'The Master',
+                'Cybermen',
+                'Weeping Angels'
+            ],
+            answer: 'The Master'
+        },
+
+        {
+            question: 'Which species says “Exterminate!” most?',
+            options: [
+                'Daleks',
+                'Sontarans',
+                'Cybermen',
+                'Sea Devils'
+            ],
+            answer: 'Daleks'
+        },
+
+        {
+            question: 'Who steals humans so that they can undergo "Upgrading"?',
+            options: [
+                'Time Lords',
+                'Ice Warriors',
+                'Silents',
+                'Cybermen'
+            ],
+            answer: 'Cybermen'
+        },
+
+        {
+            question: 'What does TARDIS stand for?',
+            options: [
+                'Tardigrades in Space',
+                'Tethered Aerial Release Developed in Style',
+                'Time and Relative Dimention in Space',
+                'Tornado Advanced Radar Display Information System'
+            ],
+            answer: 'Time and Relative Dimention in Space'
+        },
+
+        {
+            question: 'How many regenerations has the Doctor gone through?',
+            options: [
+                '13',
+                '11',
+                '10',
+                '14'
+            ],
+            answer: '14! There has been 14 regenerations, but you forgot The War Doctor.'
+        },
+    ]
+}
+
+//this is the start of the functional code
+let currentQuestion = 0;
 
 function startQuiz() {
-    $('#start-quiz').on('click', function(event){
+    $('#start').on('click', event =>{
+        event.preventDefault();
         renderAQuestion();
+        console.log('startQuiz');
       });
 }
     //this function will create an event listener that 
@@ -11,7 +77,7 @@ function startQuiz() {
 
 function questionNumberAndScore() {
     const doctorWho = $(`<ul class='center-who'>
-        <li id="js-answered">Questions Number: ${STORE.currentQuestion + 1}/${STORE.questions.length}</li>
+        <li id="js-answered">Questions Number: ${currentQuestion + 1}/${STORE.questions.length}</li>
         <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
         </ul>`);
   $(".question-and-score").html(doctorWho);
@@ -93,7 +159,7 @@ function finalResult() {
               </fieldset>
           </form>
           </div>`);
-          STORE.currentQuestion = 0;
+          currentQuestion = 0;
           STORE.score = 0;
         $("main").html(resultWho);
         }
@@ -104,7 +170,7 @@ function finalResult() {
 function handleQuestion() {
     $('body').on('click','#next-question', (event) => {
         console.log('handleQuestion', STORE.currentQuestion)
-        STORE.currentQuestion === STORE.questions.length?finalResult() : renderQuestions();
+        currentQuestion === STORE.questions.length?finalResult() : renderQuestions();
       });
 }
     //This is where I will add an event listener to the next question
@@ -133,7 +199,7 @@ function optionSelections() {
           $(`${id}`).addClass("wrong-answer");
         }
     
-        STORE.currentQuestion++;
+        currentQuestion++;
         console.log(currentQuestion)
         $("#js-score").text(`Score: ${STORE.score}/${STORE.questions.length}`);
         $('#answer').hide();
