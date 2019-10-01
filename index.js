@@ -1,4 +1,4 @@
-//this is my stored data
+//this is my stored data is
 const STORE = {
     score: 0,
     // currentQuestion = 0,
