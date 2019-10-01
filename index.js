@@ -66,8 +66,7 @@ let currentQuestion = 0;
 
 function startQuiz() {
     $('#start').on('click', event =>{
-        event.preventDefault();
-        renderAQuestion();
+        renderQuestions();
         console.log('startQuiz');
       });
 }
@@ -101,7 +100,7 @@ function updateQuestionOptions() {
 
 
 function renderQuestions() {
-    console.log('renderQuestions')
+    // console.log('renderQuestions')
     let question = STORE.questions[STORE.currentQuestion];
     questionNumberAndScore();
     const questionWho = $(`
@@ -138,7 +137,7 @@ $("#next-question").hide();
     //there are a total of 5 stored in a seperate js file 
 
 function finalResult() {
-    console.log('finalResult')
+    // console.log('finalResult')
     displayResults();
     function displayResults() {
         let resultWho = $(
