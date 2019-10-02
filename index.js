@@ -56,7 +56,7 @@ const STORE = {
                 '10',
                 '14'
             ],
-            answer: '14! There has been 14 regenerations, but you forgot The War Doctor.'
+            answer: '14'
         },
     ]
 }
@@ -65,8 +65,7 @@ const STORE = {
 let currentQuestion = 0;
 
 function startQuiz() {
-    $('#start-quiz').on('click', function(event) {
-        event.preventDefault();
+    $('#start').on('click', function(event) {
         console.log('startQuiz')
         renderQuestions();
       });
@@ -222,7 +221,7 @@ function restartQuiz() {
 
 function handleQuiz() {
     startQuiz();
-    renderQuestions();
+    // renderQuestions();
     optionSelections();
     restartQuiz();
     handleQuestion();
