@@ -1,7 +1,7 @@
 //this is my stored data is
 const STORE = {
     score: 0,
-    currentQuestion = 0,
+    // currentQuestion = 0,
 
     questions: [
         {
@@ -122,7 +122,7 @@ function renderQuestions() {
 
                 <div class="row">
                     <div class="col-12">
-                        <button type = "submit" id="answer" tabindex="4">Submit</button>
+                        <button type = "submit" id="answer" tabindex="4">Allons-y!</button>
                         <button type = "button" id="next-question" tabindex="5">Travel to the Future</button>
                     </div>
                 </div>
