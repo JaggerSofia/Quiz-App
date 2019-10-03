@@ -66,7 +66,6 @@ let currentQuestion = 0;
 
 function startQuiz() {
     $('#start').on('click', function(event) {
-        console.log('startQuiz')
         renderQuestions();
       });
 }
@@ -100,7 +99,6 @@ function updateQuestionOptions() {
 
 
 function renderQuestions() {
-    console.log('renderQuestions')
     let question = STORE.questions[currentQuestion];
     questionNumberAndScore();
     const questionWho = $(`
@@ -137,7 +135,6 @@ $("#next-question").hide();
     //there are a total of 5 stored in a seperate js file 
 
 function finalResult() {
-    console.log('finalResult')
     displayResults();
     function displayResults() {
         let resultWho = $(
@@ -168,7 +165,6 @@ function finalResult() {
 
 function handleQuestion() {
     $('body').on('click','#next-question', (event) => {
-        console.log('handleQuestion', currentQuestion)
         currentQuestion === STORE.questions.length?finalResult() : renderQuestions();
       });
 }
@@ -199,7 +195,6 @@ function optionSelections() {
         }
     
         currentQuestion++;
-        console.log(currentQuestion)
         $("#js-score").text(`Score: ${STORE.score}/${STORE.questions.length}`);
         $('#answer').hide();
         $("input[type=radio]").attr('disabled', true);
