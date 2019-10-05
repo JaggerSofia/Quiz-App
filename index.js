@@ -66,7 +66,6 @@ let currentQuestion = 0;
 
 function startQuiz() {
     $('#start').on('click', function(event) {
-        console.log('startQuiz')
         renderQuestions();
       });
 }
@@ -98,11 +97,14 @@ function updateQuestionOptions() {
     //this will render the <radio> options for the quiz
     //depending on which question is being rendered
 
+function generateRandomQuestion() {
+    return Math.floor(Math.random()*STORE.questions.length)
+}
 
 function renderQuestions() {
-    console.log('renderQuestions')
     let question = STORE.questions[currentQuestion];
     questionNumberAndScore();
+    generateRandomQuestion()
     const questionWho = $(`
     <div class='center-who'>
         <form id="js-questions" class="question-form">
@@ -137,7 +139,6 @@ $("#next-question").hide();
     //there are a total of 5 stored in a seperate js file 
 
 function finalResult() {
-    console.log('finalResult')
     displayResults();
     function displayResults() {
         let resultWho = $(
@@ -168,7 +169,6 @@ function finalResult() {
 
 function handleQuestion() {
     $('body').on('click','#next-question', (event) => {
-        console.log('handleQuestion', currentQuestion)
         currentQuestion === STORE.questions.length?finalResult() : renderQuestions();
       });
 }
@@ -199,7 +199,6 @@ function optionSelections() {
         }
     
         currentQuestion++;
-        console.log(currentQuestion)
         $("#js-score").text(`Score: ${STORE.score}/${STORE.questions.length}`);
         $('#answer').hide();
         $("input[type=radio]").attr('disabled', true);
