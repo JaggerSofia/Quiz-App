@@ -130,9 +130,9 @@ function renderQuestions() {
             </fieldset>
         </form>
     </div>`);
-$("main").html(questionWho);
-updateQuestionOptions();
-$("#next-question").hide();
+    $("main").html(questionWho);
+    updateQuestionOptions();
+    $("#next-question").hide();
 }
     //this function will place a new question on the screen
     //will also update the current ? number and score
@@ -140,6 +140,7 @@ $("#next-question").hide();
 
 function finalResult() {
     displayResults();
+    
     function displayResults() {
         let resultWho = $(
           `<div class="results">
@@ -161,7 +162,7 @@ function finalResult() {
           </div>`);
           currentQuestion = 0;
           STORE.score = 0;
-        $("main").html(resultWho);
+          $("main").html(resultWho);
         }
 }
     //this will be where the final score will be displayed when all ?
@@ -182,20 +183,20 @@ function optionSelections() {
         let currentQues = STORE.questions[currentQuestion];
         let selectedOption = $("input[name=options]:checked").val();
         if (!selectedOption) {
-          alert("Choose an option");
-          return;
+            alert("Choose an option");
+            return;
         } 
         let id_num = currentQues.options.findIndex(i => i === selectedOption);
         let id = "#js-r" + ++id_num;
         $('span').removeClass("right-answer wrong-answer");
         if(selectedOption === currentQues.answer) {
-          STORE.score++; 
-          $(`${id}`).append(`You got it right!<br/>`);
-          $(`${id}`).addClass("right-answer");
+           STORE.score++; 
+           $(`${id}`).append(`You got it right!<br/>`);
+           $(`${id}`).addClass("right-answer");
         }
         else {
-          $(`${id}`).append(`You got it wrong <br/> The answer is "${currentQues.answer}"<br/>`);
-          $(`${id}`).addClass("wrong-answer");
+           $(`${id}`).append(`You got it wrong <br/> The answer is "${currentQues.answer}"<br/>`);
+           $(`${id}`).addClass("wrong-answer");
         }
     
         currentQuestion++;
